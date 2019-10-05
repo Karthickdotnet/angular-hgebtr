@@ -1,0 +1,16 @@
+<p>
+I am Coming from another Module.{{myDate| date:'dd-MMM-yyyy'}}<br>
+{{myDate| date:'h:mm:ss a'}}<br>
+{{myDate| date:'yyyy-MM-dd zzzz'}}
+
+<!--<button (click)="toggle()" id="bt">
+    {{buttonName}}
+</button>-->
+<app-toggle-btn (changed)="toggle()">
+    </app-toggle-btn>
+
+</p>
+
+<div *ngIf="action;then logIn; else logOut">Content to render when condition is true.</div>
+<ng-template  #logIn>HI</ng-template >
+<ng-template  #logOut>Sorry!No data to Display.Please click Show button!</ng-template >
