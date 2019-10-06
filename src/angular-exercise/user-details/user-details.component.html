@@ -1,16 +1,69 @@
 <p>
-I am Coming from another Module.{{myDate| date:'dd-MMM-yyyy'}}<br>
+	I am Coming from another Module.{{myDate| date:'dd-MMM-yyyy'}}<br>
 {{myDate| date:'h:mm:ss a'}}<br>
 {{myDate| date:'yyyy-MM-dd zzzz'}}
 
-<!--<button (click)="toggle()" id="bt">
+	<!--<button (click)="toggle()" id="bt">
     {{buttonName}}
 </button>-->
-<app-toggle-btn (changed)="toggle()">
-    </app-toggle-btn>
+	<app-toggle-btn (changed)="toggle()">
+	</app-toggle-btn>
 
 </p>
+<div [style.color]="'orange'">style using property syntax, this text is orange</div>
+<input type="text" [style.background]="'red'" >
+<select >
+  <option value="-1">Please select a animal</option>
+   <option [value]="animal" *ngFor="let animal of animals">             {{animal}}</option>
 
-<div *ngIf="action;then logIn; else logOut">Content to render when condition is true.</div>
-<ng-template  #logIn>HI</ng-template >
-<ng-template  #logOut>Sorry!No data to Display.Please click Show button!</ng-template >
+</select>
+
+<input type="text" *ngIf="selectionModel != '-1'"  [(ngModel)]="selectionModel">
+
+
+<div class="component-style table-component">
+
+	<div class="component-tag">
+		<span>Example</span>
+	</div>
+
+	<br>
+
+	<table>
+		<tr>
+			<th *ngFor="let c of columns">{{c}}</th>
+		</tr>
+		<tr class="component-style table-row-component">
+		</tr>
+
+		<tr>
+			<td class="component-style table-row-component">1.</td>
+			<td class="component-style table-row-component">Date Time Using Interface</td>
+			<td class="component-style table-row-component">
+
+				{{myDate| date:'dd-MMM-yyyy'}}
+
+				<br>
+        {{myDate| date:'h:mm:ss a'}}
+				<br>
+    </td>
+		</tr>
+    <tr>
+<td class="component-style table-row-component">1.</td>
+			<td class="component-style table-row-component">Date Time Using Interface</td>
+			<td class="component-style table-row-component">
+<div *ngIf="action;then show; else hide">Content to render when condition is true.</div>
+<ng-template #show><b>List of Names</b>
+	<ul>
+		<li *ngFor="let name of names">
+			{{ name }}
+		</li>
+	</ul>
+</ng-template>
+<ng-template #hide>Sorry!No data to Display.Please click Show button!</ng-template>
+</td>
+    </tr>
+
+		<!-- <app-table-row-incorrect *ngFor="let ch of characters | async" [ch]="ch" [keys]="columns"></app-table-row-incorrect> -->
+	</table>
+</div>

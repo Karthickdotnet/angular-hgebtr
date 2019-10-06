@@ -3,7 +3,7 @@ import { DatePipe } from '@angular/common';
 import { IInterfaceEx } from './details';
 import { ToggleBtnComponent } from '../Utilize/toggle-btn/toggle-btn.component';
 
-
+import { MyTableService } from '../Services/my-Tables.service';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -14,9 +14,16 @@ export class UserDetailsComponent implements OnInit,IInterfaceEx,ToggleBtnCompon
 myDate1 = new Date();
  action:boolean = false;
    buttonName:any = 'Show';
-  constructor() { }
+   columns: string[];
+   names: string[];
+   animals: string[];
+  constructor(private atService: MyTableService) {
+  }
 
   ngOnInit() {
+    this.columns = this.atService.getColumns();
+    this.names = this.atService.getNames();
+    this.animals = this.atService.getAnimals();
     
   }
     toggle() {
