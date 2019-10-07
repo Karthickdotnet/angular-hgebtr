@@ -11,8 +11,10 @@
 
 </p>
 <div [style.color]="'orange'">style using property syntax, this text is orange</div>
-<input type="text" [style.background]="'red'" >
-<select >
+<!-- <input type="text" [style.background]="'red'" >
+<input type="text" [(ngModel)]="selectionModel"  class="Tiger" >-->
+<input type="text" [(ngModel)]="selectionModel"  [ngClass]="selectionModel" >
+<select [(ngModel)]="selectionModel">
   <option value="-1">Please select a animal</option>
    <option [value]="animal" *ngFor="let animal of animals">             {{animal}}</option>
 
